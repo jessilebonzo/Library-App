@@ -1,0 +1,445 @@
+/* style.css */
+
+/* Global Styles (optional if used elsewhere) */
+
+* {
+  margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.container {
+	width: 90%;
+	padding: 2rem 1rem;
+	margin: 0 auto;
+}
+
+:root {
+	--gray: #efefef;
+}
+
+body, html {
+  font-family: 'DM Sans', sans-serif;
+  color: #06413D;
+  background-color: var(--gray);
+}
+
+header {
+	position: fixed;
+	width: 100vw;
+	background-color: #efd9cc;
+	box-shadow: 0 0 .6rem rgba(0, 0, 0, 0.2);
+	z-index: 99;
+}
+
+header .container {
+    display: flex;
+    align-items: baseline;
+		justify-content: space-between;
+}
+
+header h1 {
+	font-size: clamp(32px, 5vw, 2.8rem);
+	font-weight: 900;
+}
+
+header h1 a {
+	width: 100%;
+	text-decoration: none;
+	color: #06413D;
+}
+
+header .open-modal {
+	position: relative;
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+
+header .open-modal span {
+	position: absolute;
+	top: 50%;
+	background-color: #06413D;
+	width: 100%;
+	height: 4px;
+	border-radius: 1rem;
+}
+
+header .open-modal span:first-child {
+	transform: translateY(-50%);
+}
+
+header .open-modal span:last-child {
+	transform: translateY(-50%) rotate(90deg);
+}
+/* Wrapper Styles (optional) */
+
+.grid {
+  display: flex;
+  width: auto;
+  justify-content: space-around;
+}
+
+/* Card Styles */
+
+.card {
+  width: 280px;
+  height: 360px;
+  border-radius: 15px;
+  /* padding: 1.5rem; */
+  background: rgba(22, 2, 2, 0.233);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(black, 0.5);
+
+  &:hover {
+    transform: translateY(20px);
+
+    &:before {
+      opacity: 1;
+    }
+
+    .book-details{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: rgba(rgb(35, 26, 26), 0.6);
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+  }
+
+  .book-details{
+    position: relative;
+    z-index: 3;
+    color: #06413D;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+
+    h1 {
+      margin: 0px;
+    }
+
+    p {
+      letter-spacing: 1px;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+		h6{
+			text-align: center;
+			letter-spacing: 1px;
+      font-size: 15px;
+      margin-top: 8px;
+		}
+
+    button {
+      padding: 0.6rem;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      background: white;
+      color: #06413d;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s ease;
+
+      &:hover {
+        background: #06413d;
+        color: white;
+      }
+    }
+  }
+}
+.bookshelf {
+	position: relative;
+	top: 100px;
+	justify-content: space-around;
+}
+
+.bookshelf h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+.bookshelf .grid {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(5, 1fr);
+	justify-items: center;
+}
+
+.bookshelf .container {
+  width: 90%; /* Adjust the width as needed (e.g., 80%) */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+.bookshelf .card {
+	position: relative;
+	background-color: #ddd;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top top;
+	box-shadow: 0 4px .6rem rgba(0, 0, 0, 0.1);
+	min-height: 430px;
+	border-radius: 1rem;
+	transition: .3s box-shadow;
+}
+
+.bookshelf .card:hover {
+	box-shadow: 0 4px .8rem rgba(214, 227, 125, 0.2);
+}
+
+.bookshelf .card .book-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	bottom: 0;
+	padding: 1rem;
+	background-color: #efd9cc;
+	height: 55%;
+	width: 100%;
+	border-radius: 1rem;
+}
+
+.bookshelf .card .book-details p:first-child {
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin-bottom: .4rem;
+}
+
+.bookshelf .card .book-details .read {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: .4rem;
+}
+
+.bookshelf .card .book-details .read > label {
+	font-weight: 600;
+	user-select: none;
+}
+
+.bookshelf .card .book-details .read > input {
+	height: 1.1rem;
+	width: 1.1rem;
+	display: inline-block;
+}
+
+/* Start Adding A Book Modal */
+.modal {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+}
+
+.modal .close-modal {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	transform: rotate(45deg);
+}
+
+.modal .close-modal span {
+	position: absolute;
+	top: 50%;
+	background-color: var(--black);
+	width: 100%;
+	height: 4px;
+	border-radius: 1rem;
+}
+
+.modal .close-modal span:first-child {
+	transform: translateY(-50%);
+}
+
+.modal .close-modal span:last-child {
+	transform: translateY(-50%) rotate(90deg);
+}
+
+.modal form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: #efd9cc;
+	padding: 4rem 2rem 2rem;
+	width: min(400px, 100%);
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+}
+
+.modal form h2 {
+	margin-bottom: .5rem;
+	font-weight: 600;
+}
+
+.modal form .row {
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
+}
+
+.modal form .row label {
+	font-size: 1.1rem;
+}
+
+.modal form .row input {
+	font-size: 1.1rem;
+	padding: .2rem;
+}
+
+.modal form .row button {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--gray);
+	background-color: #06413D;
+	border: none;
+	padding: .6rem;
+	cursor: pointer;
+}
+
+.modal form div:nth-child(7) > div {
+	display: flex;
+	align-items: center;
+	gap: .4rem;
+}
+
+.modal form div:nth-child(7) > div input[type=checkbox] {
+	height: 1.1rem;
+	width: 1.1rem;
+}
+
+/* End Adding A Book Modal */
+/* RESPONSIVENESS */
+/* X-Small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+	.bookshelf .grid {
+		grid-template-columns: none;
+	}
+	/* .header, .h1 {
+			min-height: auto !important;
+	}	
+	.bookshelf .grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.book-details {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			flex-direction: grid;
+			align-content: center;
+			align-items: center;
+			gap: 14px;
+	}
+	.h1 {
+		font-size: 1%;
+    font-weight: 10;
+		width: 100% !important;
+	}
+	.grid {
+		margin: 0;
+	} */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+	/* .header, .h1 {
+		min-height: auto !important;
+	}
+.book-details {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		flex-direction: column;
+		align-content: center;
+		align-items: center;
+		gap: 14px;
+	}
+.h1 {
+	font-size: 1%;
+	font-weight: 10;
+	width: 100% !important;
+	} */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+	/* .header, .h1 {
+			min-height: auto !important;
+		}
+	.book-details {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			gap: 14px;
+		}
+	.h1 {
+		font-size: 1%;
+		font-weight: 10;
+		width: 100% !important;
+		} */
+	}
+@media (max-width: 1024px) {
+	.bookshelf .grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 992px) {
+ .navbar-collapse {
+			flex-grow: unset !important;
+	}
+	
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (max-width: 1400px) {}
