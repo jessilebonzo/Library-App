@@ -349,97 +349,31 @@ header .open-modal span:last-child {
 }
 
 /* End Adding A Book Modal */
-/* RESPONSIVENESS */
-/* X-Small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
 
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 767px) {
-	.bookshelf .grid {
-		grid-template-columns: none;
-	}
-	/* .header, .h1 {
-			min-height: auto !important;
-	}	
-	.bookshelf .grid {
-		grid-template-columns: repeat(1, 1fr);
-	}
-
-	.book-details {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-			flex-direction: grid;
-			align-content: center;
-			align-items: center;
-			gap: 14px;
-	}
-	.h1 {
-		font-size: 1%;
-    font-weight: 10;
-		width: 100% !important;
-	}
-	.grid {
-		margin: 0;
-	} */
+/* Mobile (phones) */
+@media (max-width: 576px) {
+  .bookshelf .grid {
+    grid-template-columns: repeat(1, 1fr); 
+  }
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) {
-	/* .header, .h1 {
-		min-height: auto !important;
-	}
-.book-details {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-		flex-direction: column;
-		align-content: center;
-		align-items: center;
-		gap: 14px;
-	}
-.h1 {
-	font-size: 1%;
-	font-weight: 10;
-	width: 100% !important;
-	} */
+/* Tablet */
+@media (min-width: 577px) and (max-width: 820px) {
+  .bookshelf .grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (max-width: 992px) {
-	/* .header, .h1 {
-			min-height: auto !important;
-		}
-	.book-details {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-			flex-direction: column;
-			align-content: center;
-			align-items: center;
-			gap: 14px;
-		}
-	.h1 {
-		font-size: 1%;
-		font-weight: 10;
-		width: 100% !important;
-		} */
-	}
-@media (max-width: 1024px) {
-	.bookshelf .grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-@media (min-width: 992px) {
- .navbar-collapse {
-			flex-grow: unset !important;
-	}
-	
+/* iPad Air */
+@media (min-width: 821px) and (max-width: 1024px) {
+  .bookshelf .grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
-/* X-Large devices (large desktops, 1200px and up) */
-@media (max-width: 1200px) {
+/* Desktop */
+@media (min-width: 1025px) {
+  .bookshelf .grid {
+    grid-template-columns: repeat(4, 1fr); 
+  }
 }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (max-width: 1400px) {}
